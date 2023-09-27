@@ -17,7 +17,7 @@ include "connection.php";
 <body>
     <div class="container">
         <button class="btn btn-primary mt-5">
-            <a class="text-light" href="users.php">Add user</a>
+            <a class="text-light" href="users.php">Add User</a>
         </button>
         <table class="table table-striped mt-1">
             <thead>
@@ -55,10 +55,10 @@ include "connection.php";
                                 <td>'.$password.'</td>
                                 <td>
                                     <button class="btn btn-success">
-                                    <a href="#" class="text-light">Update</a>
+                                    <a href="update.php?updateid='.$id.'" class="text-light">Update</a>
                                     </button>
                                     <button class="btn btn-danger">
-                                    <a href="#" class="text-light">Delete</a>
+                                    <a href="delete.php?deleteid='.$id.'" class="text-light">Delete</a>
                                     </button>
                                 </td>
                             </tr>';
