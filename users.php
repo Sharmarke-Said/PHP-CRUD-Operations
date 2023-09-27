@@ -11,7 +11,8 @@ if(isset($_POST['submit'])){
 
     $result = mysqli_query($con, $query);
     if($result){
-        echo "Data inserted successfully";
+        // echo "Data inserted successfully";
+        header("location:display.php");
     }
     else{
         die(mysqli_error($con));

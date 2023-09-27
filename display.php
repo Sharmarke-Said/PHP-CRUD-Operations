@@ -1,3 +1,9 @@
+<?php 
+
+include "connection.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,36 +16,56 @@
 
 <body>
     <div class="container">
-        <button class="btn btn-primary my-5">
+        <button class="btn btn-primary mt-5">
             <a class="text-light" href="users.php">Add user</a>
         </button>
-        <table class="table">
+        <table class="table table-striped mt-1">
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">username</th>
+                    <th scope="col">email</th>
+                    <th scope="col">password</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+                <?php
+
+                    $query = "SELECT * FROM `usersTb`";
+
+                    $result = mysqli_query($con, $query);
+                    if($result){
+                        // $row=mysqli_fetch_assoc($result);
+                        // echo $row['username'];
+                        // $row=mysqli_fetch_assoc($result);
+                        // echo $row['username'];
+                        
+                        // DRY(don't repeat your self) and use loop
+                        while($row=mysqli_fetch_assoc($result)){
+                            $id = $row['id'];
+                            $username = $row['username'];
+                            $email = $row['email'];
+                            $password = $row['password'];
+
+                            echo '<tr>
+                                <th scope="row">'.$id.'</th>
+                                <td>'.$username.'</td>
+                                <td>'.$email.'</td>
+                                <td>'.$password.'</td>
+                                <td>
+                                    <button class="btn btn-success">
+                                    <a href="#" class="text-light">Update</a>
+                                    </button>
+                                    <button class="btn btn-danger">
+                                    <a href="#" class="text-light">Delete</a>
+                                    </button>
+                                </td>
+                            </tr>';
+                        }
+                    }
+
+                ?>
             </tbody>
         </table>
     </div>
