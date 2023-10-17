@@ -2,17 +2,16 @@
 
 include "connection.php";
 
-if(isset($_POST['submit'])){
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+extract($_POST);
 
-    $query = "insert into  `usersTb` (username, email, password) values('$username','$email','$password')";
+if(isset($_POST['stdname']) && isset($_POST['stdemail']) && isset($_POST['stdaddress']) && isset($_POST['stdclass'])){
+    
+    $query = "insert into  `studentstb` (name, email, address, std_class) values('$stdname','$stdemail','$stdaddress', '$stdclass')";
 
     $result = mysqli_query($con, $query);
     if($result){
-        // echo "Data inserted successfully";
-        header("location:display.php");
+        echo "Data inserted successfully";
+        // header("location:index.php");
     }
     else{
         die(mysqli_error($con));
@@ -20,36 +19,3 @@ if(isset($_POST['submit'])){
 }
 
 ?>
-
-
-<!doctype html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CRUD</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-
-<body>
-    <div class="container">
-        <form method="post">
-            <div class="mb-3 w-75 mt-5">
-                <label class="form-label">username</label>
-                <input type="text" class="form-control" name="username" placeholder="Enter username">
-            </div>
-            <div class=" mb-3 w-75">
-                <label class="form-label">Email address</label>
-                <input type="email" class="form-control" name="email" placeholder=" Enter Email Address">
-            </div>
-            <div class="mb-3 w-75">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" name="password" placeholder=" Enter Password">
-            </div>
-            <button type="submit" name="submit" class="btn btn-primary btn-block">Submit</button>
-        </form>
-    </div>
-</body>
-
-</html>

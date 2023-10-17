@@ -2,73 +2,42 @@
 
 include "connection.php";
 
+if(isset($_POST['display'])){
+    $table = '<table class="table table-primary table-hover mt-2">
+    <thead class="thead-primary">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Address</th>
+      <th scope="col">Class</th>
+      <th scope="col">Opertions</th>
+    </tr>
+  </thead>';
+    $query = "SELECT * FROM `studentstb`";
+    $result = mysqli_query($con, $query);
+    while($row = mysqli_fetch_array($result)){
+        $id = $row['id'];
+        $name = $row['name'];
+        $email = $row['email'];
+        $address = $row['address'];
+        $std_class = $row['std_class'];
+        
+        $table.= '<tbody>
+         <tr>
+        <td scope="row">'.$id.'</td>
+        <td>'.$name.'</td>
+        <td>'.$email.'</td>
+        <td>'.$address.'</td>
+        <td>'.$std_class.'</td>
+        <td>
+          <button class="btn btn-success">Update</button>
+          <button class="btn btn-danger">Delete</button>
+        </td>
+      </tr>';
+    }
+    $table.= '</tbody> </table>';
+    echo $table;
+    
+}
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-
-<body>
-    <div class="container">
-        <button class="btn btn-primary mt-5">
-            <a class="text-light" href="users.php">Add User</a>
-        </button>
-        <table class="table table-striped mt-1">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">username</th>
-                    <th scope="col">email</th>
-                    <th scope="col">password</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-
-                    $query = "SELECT * FROM `usersTb`";
-
-                    $result = mysqli_query($con, $query);
-                    if($result){
-                        // $row=mysqli_fetch_assoc($result);
-                        // echo $row['username'];
-                        // $row=mysqli_fetch_assoc($result);
-                        // echo $row['username'];
-                        
-                        // DRY(don't repeat your self) and use loop
-                        while($row=mysqli_fetch_assoc($result)){
-                            $id = $row['id'];
-                            $username = $row['username'];
-                            $email = $row['email'];
-                            $password = $row['password'];
-
-                            echo '<tr>
-                                <th scope="row">'.$id.'</th>
-                                <td>'.$username.'</td>
-                                <td>'.$email.'</td>
-                                <td>'.$password.'</td>
-                                <td>
-                                    <button class="btn btn-success">
-                                    <a href="update.php?updateid='.$id.'" class="text-light">Update</a>
-                                    </button>
-                                    <button class="btn btn-danger">
-                                    <a href="delete.php?deleteid='.$id.'" class="text-light">Delete</a>
-                                    </button>
-                                </td>
-                            </tr>';
-                        }
-                    }
-
-                ?>
-            </tbody>
-        </table>
-    </div>
-</body>
-
-</html>
