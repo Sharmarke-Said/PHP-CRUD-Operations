@@ -16,6 +16,7 @@ if(isset($_POST['display'])){
   </thead>';
     $query = "SELECT * FROM `studentstb`";
     $result = mysqli_query($con, $query);
+    $seq_num = 1;
     while($row = mysqli_fetch_array($result)){
         $id = $row['id'];
         $name = $row['name'];
@@ -25,7 +26,7 @@ if(isset($_POST['display'])){
         
         $table.= '<tbody>
          <tr>
-        <td scope="row">'.$id.'</td>
+        <td scope="row">'.$seq_num.'</td>
         <td>'.$name.'</td>
         <td>'.$email.'</td>
         <td>'.$address.'</td>
@@ -35,6 +36,7 @@ if(isset($_POST['display'])){
           <button class="btn btn-danger" onclick="deleteStudent('.$id.')">Delete</button>
         </td>
       </tr>';
+      $seq_num++;
     }
     $table.= '</tbody> </table>';
     echo $table;
