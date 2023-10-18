@@ -79,7 +79,7 @@
             }
         });
     }
-
+    // Isnert
     function addStudents() {
         var name = $('#stdname').val();
         var email = $('#stdemail').val();
@@ -100,6 +100,20 @@
                 displayData();
             }
         });
+    }
+    // Delete 
+    function deleteStudent(deleteid) {
+        $.ajax({
+            url: "delete.php",
+            type: 'post',
+            data: {
+                deleteId: deleteid
+            },
+            success: function(data, status) {
+                console.log(status);
+                displayData();
+            }
+        })
     }
     </script>
 
