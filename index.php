@@ -125,7 +125,7 @@
         var classs = $('#stdclass').val();
 
         $.ajax({
-            url: "users.php",
+            url: "students.php",
             type: 'post',
             data: {
                 stdname: name,
