@@ -67,8 +67,7 @@
                 <div class="modal-body">
                     <!-- <form method="post"> -->
                     <div class="mb-3 w-75">
-                        <label class="form-label">ID</label>
-                        <input type="text" class="form-control" id="stdid">
+                        <input type="text" class="form-control" id="stdid" hidden>
                     </div>
                     <div class="mb-3 w-75">
                         <label class="form-label">Student name</label>
