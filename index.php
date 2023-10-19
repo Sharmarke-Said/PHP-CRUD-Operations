@@ -14,7 +14,7 @@
     <div class="container my-4">
         <h1>PHP CRUD Operations</h1>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#adduser">
+        <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#addStudent">
             Add New Student
         </button>
         <div id="displayDataTable"></div>
@@ -22,11 +22,11 @@
 
 
     <!-- Modal -->
-    <div class=" modal fade" id="adduser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class=" modal fade" id="addStudent" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Adding users</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Adding Students</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -41,7 +41,7 @@
                     </div>
                     <div class="mb-3 w-75">
                         <label for="exampleInputPassword1" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="stdaddress" placeholder=" Enter Address">
+                        <input type="text" class="form-control" id="stdaddress">
                     </div>
                     <div class="mb-3 w-75">
                         <label for="exampleInputPassword1" class="form-label">Class</label>
@@ -52,6 +52,45 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" onclick="addStudents()">Submit</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Update modal -->
+    <div class=" modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Update Student Details</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- <form method="post"> -->
+                    <div class="mb-3 w-75">
+                        <label class="form-label">ID</label>
+                        <input type="text" class="form-control" id="stdid">
+                    </div>
+                    <div class="mb-3 w-75">
+                        <label class="form-label">Student name</label>
+                        <input type="text" class="form-control" id="studentname">
+                    </div>
+                    <div class=" mb-3 w-75">
+                        <label class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="studentemail">
+                    </div>
+                    <div class="mb-3 w-75">
+                        <label for="exampleInputPassword1" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="studentaddress">
+                    </div>
+                    <div class="mb-3 w-75">
+                        <label for="exampleInputPassword1" class="form-label">Class</label>
+                        <input type="text" class="form-control" id="studentclass">
+                    </div>
+                    <!-- </form> -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="updateStdDetails()">Update</button>
+                    <button type=" button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -97,6 +136,7 @@
             },
             success: function(data, status) {
                 console.log(status);
+                $("#addStudent").modal('hide');
                 displayData();
             }
         });
@@ -113,6 +153,41 @@
                 console.log(status);
                 displayData();
             }
+        })
+    }
+    // Update student
+    function getStdDetails(updateid) {
+        $("#stdid").val(updateid);
+        $.post("update.php", {
+            updateid: updateid
+        }, function(data, status) {
+            var stdDetails = JSON.parse(data);
+            console.log(stdDetails);
+            $("#studentname").val(stdDetails.name);
+            $("#studentemail").val(stdDetails.email);
+            $("#studentaddress").val(stdDetails.address);
+            $("#studentclass").val(stdDetails.std_class);
+        });
+        $('#updateModal').modal('show');
+    }
+
+    function updateStdDetails() {
+        var stdid = $('#stdid').val();
+        var studentname = $('#studentname').val();
+        var studentemail = $('#studentemail').val();
+        var studentaddress = $('#studentaddress').val();
+        var studentclass = $('#studentclass').val();
+
+
+        $.post("update.php", {
+            stdid: stdid,
+            studentname: studentname,
+            studentemail: studentemail,
+            studentaddress: studentaddress,
+            studentclass: studentclass
+        }, function(data, status) {
+            $('#updateModal').modal('hide');
+            displayData();
         })
     }
     </script>

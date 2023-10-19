@@ -32,7 +32,7 @@ if(isset($_POST['display'])){
         <td>'.$address.'</td>
         <td>'.$std_class.'</td>
         <td>
-          <button class="btn btn-success">Update</button>
+          <button class="btn btn-success" onclick="getStdDetails('.$id.')">Update</button>
           <button class="btn btn-danger" onclick="deleteStudent('.$id.')">Delete</button>
         </td>
       </tr>';
