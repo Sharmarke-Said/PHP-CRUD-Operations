@@ -8,6 +8,8 @@
     <!-- bootsrap css -->
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
@@ -15,8 +17,9 @@
         <h1>PHP CRUD Operations</h1>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#addStudent">
-            Add New Student
+            <i class="fas fa-plus"></i> Add New Student
         </button>
+
         <div id="displayDataTable"></div>
     </div>
 

@@ -32,9 +32,14 @@ if(isset($_POST['display'])){
         <td>'.$address.'</td>
         <td>'.$std_class.'</td>
         <td>
-          <button class="btn btn-success" onclick="getStdDetails('.$id.')">Update</button>
-          <button class="btn btn-danger" onclick="deleteStudent('.$id.')">Delete</button>
-        </td>
+          <button class="btn btn-success" onclick="getStdDetails('.$id.')">
+              <i class="fas fa-edit"></i>
+          </button>
+          <button class="btn btn-danger" onclick="deleteStudent('.$id.')">
+              <i class="fas fa-trash-alt"></i>
+          </button>
+      </td>
+
       </tr>';
       $seq_num++;
     }
