@@ -17,7 +17,7 @@
         <h1>PHP CRUD Operations</h1>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#addStudent">
-            <i class="fas fa-plus"></i> Add New Student
+            <i class="fas fa-plus"></i> New Student
         </button>
 
         <div id="displayDataTable"></div>
@@ -36,7 +36,7 @@
                     <!-- <form method="post"> -->
                     <div class="mb-3 w-75">
                         <label class="form-label">Student name</label>
-                        <input type="text" class="form-control" id="stdname" placeholder="Enter name">
+                        <input type="text" class="form-control" id="stdname" placeholder="Enter student name">
                     </div>
                     <div class=" mb-3 w-75">
                         <label class="form-label">Email address</label>
@@ -44,11 +44,11 @@
                     </div>
                     <div class="mb-3 w-75">
                         <label for="exampleInputPassword1" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="stdaddress">
+                        <input type="text" class="form-control" id="stdaddress" placeholder=" Enter the Address">
                     </div>
                     <div class="mb-3 w-75">
                         <label for="exampleInputPassword1" class="form-label">Class</label>
-                        <input type="text" class="form-control" id="stdclass" placeholder=" Enter Address">
+                        <input type="text" class="form-control" id="stdclass" placeholder=" Enter the student class">
                     </div>
                     <!-- </form>~ -->
                 </div>
