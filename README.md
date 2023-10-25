@@ -9,10 +9,10 @@ Simple PHP CRUD operations.
 
 **Add student**
 
-![The CRUD image](https://github.com/Sharmarke-Said/PHP-CRUD-Operations/blob/main/PHP%20CRUD%20Add%20student.png?raw=true)
+![The Add std image](https://github.com/Sharmarke-Said/PHP-CRUD-Operations/blob/main/PHP%20CRUD%20Add%20student.png?raw=true)
 
 
 **Update student**
 
-![The CRUD image](https://github.com/Sharmarke-Said/PHP-CRUD-Operations/blob/main/PHP%20CRUD%20update%20student.png?raw=true)
+![The Update std image](https://github.com/Sharmarke-Said/PHP-CRUD-Operations/blob/main/PHP%20CRUD%20update%20student.png?raw=true)
 
