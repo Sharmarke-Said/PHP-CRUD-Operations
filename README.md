@@ -1,4 +1,12 @@
 # PHP-CRUD-Operations
 Simple PHP CRUD operations.
 
-![The CRUD image](https://user-images.githubusercontent.com/119165550/276520689-aa4f4110-e7c2-4a7e-89cb-f3bff746c889.png)
+The whole CRUD 
+![The CRUD image](https://github.com/Sharmarke-Said/PHP-CRUD-Operations/blob/main/PHP%20CRUD%20All.png?raw=true)
+
+Add student
+![The CRUD image](https://github.com/Sharmarke-Said/PHP-CRUD-Operations/blob/main/PHP%20CRUD%20Add%20student.png?raw=true)
+
+Update student
+![The CRUD image](https://github.com/Sharmarke-Said/PHP-CRUD-Operations/blob/main/PHP%20CRUD%20update%20student.png?raw=true)
+
